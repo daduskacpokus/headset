@@ -1,9 +1,15 @@
-# headset
+### Журнал перемещений
 
-[Журнал перемещений](files/Screenshot from 2019-05-27 23-16-24.png) 
+![Журнал перемещений](https://github.com/daduskacpokus/headset/blob/master/files/Screenshot%20from%202019-05-27%2023-16-24.png) 
 
-[Журнал выдачи SKU](files/Screenshot from 2019-05-27 23-13-34.png) 
+### Журнал выдачи SKU
 
-[Окно настроек](files/Screenshot from 2019-05-27 23-13-05.png) 
+![Журнал выдачи SKU](https://github.com/daduskacpokus/headset/blob/master/files/Screenshot%20from%202019-05-27%2023-13-34.png) 
 
-[Алерт](files/Screenshot from 2019-05-27 23-13-46.png) 
+### Алерт
+ 
+![Алерт](https://github.com/daduskacpokus/headset/blob/master/files/Screenshot%20from%202019-05-27%2023-13-46.png) 
+
+### Окно настроек
+
+![Окно настроек](https://github.com/daduskacpokus/headset/blob/master/files/Screenshot%20from%202019-05-27%2023-13-05.png)
