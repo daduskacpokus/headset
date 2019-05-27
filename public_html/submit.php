@@ -64,7 +64,7 @@ function _reverse_submit($row_id){
         $request = "update `across` set `reverse_date` = '".date('c')."' where `row_id` = '". $row_id . "';";
         _safeput($dbhandler, $request);
     }
-    header("Location: /headset/?" . $tabname . '=true');
+    header("Location: /?" . $tabname . '=true');
 }
 
 
@@ -139,10 +139,10 @@ function _checkit($tooggle, $dbhandler, $device_id, $secondary = FALSE) {
     include './src/controllers/unbreakable.php';
     $unbreakable = new unbreakable($dbhandler);
     $unbreakable->_gettrace($device_id, $tooggle);
-    $url = "/headset/?$tooggle=true";
+    $url = "/?$tooggle=true";
     if($secondary){
         if ($tooggle == 'rotate' & $_POST['increment'] == $_POST['decrement']) {
-            $url = "/headset/?rotate=true&increment=" . $_POST['increment'];
+            $url = "/?rotate=true&increment=" . $_POST['increment'];
             $mess[0] = 'Значения не должны совпадать'; //"Передан в ремонт?";
             $mess[1] = 'Ошибочный ввод';
             echo _baloon($mess, 'caution');
@@ -165,7 +165,7 @@ function _checkit($tooggle, $dbhandler, $device_id, $secondary = FALSE) {
             }else{
                 if (!isset($_COOKIE['increment']) ) {
                     setcookie('increment', $device_id, time() + 60);
-                    header("Location: " . "/headset/?rotate=true&increment=" . $_POST['increment']);
+                    header("Location: " . "/?rotate=true&increment=" . $_POST['increment']);
                 }
             }
             break;
@@ -216,9 +216,9 @@ function _safeput($dbhandler, $request, $redirect = FALSE, $url = FALSE) {
     }
     if ($redirect) {
         if (!$url) {
-            header("Location: /headset/?rotate=true");
+            header("Location: /?rotate=true");
         } else {
-            header("Location: /headset/?" . $url);
+            header("Location: /?" . $url);
         }
     }
 }
@@ -253,7 +253,7 @@ function _supply_submit($toogle) {
     if (!isset($_COOKIE['device'])) {
         if(_checkit($toogle, $dbhandler, $_POST['device'], TRUE)){
             setcookie('device', $_POST['device'],time() + 60);
-            header("Location: /headset/?supply=true&device=" . $_POST['device']);
+            header("Location: /?supply=true&device=" . $_POST['device']);
         }
     } else {
         foreach ($_POST as $key => $value) {
@@ -353,7 +353,7 @@ function _writeoff_submit($toogle) {
                     $condition = 'inadequate';
                     break;
             }
-            header("Location: /headset/?writeoff=true&device=" . $_POST['device']
+            header("Location: /?writeoff=true&device=" . $_POST['device']
                     . '&storage=' . $faulty_row[2] . '&label=' . $faulty_row[0]
                     . '&condition=' . $condition);
         }
@@ -421,14 +421,14 @@ function _barcode_submit() {
     session_start();
     $_SESSION['run'] = true;
     $_SESSION['codes'] = $code_arr;
-    header("Location: /headset/?barcode=true");
+    header("Location: /?barcode=true");
 }
 
 function _search_submit() {
     if (strlen($_POST['needle']) > 0) {
-        header("Location: /headset/?search=true&needle=" . $_POST['needle']);
+        header("Location: /?search=true&needle=" . $_POST['needle']);
     } else {
-        header("Location: /headset/?search=true");
+        header("Location: /?search=true");
     }
 }
 
@@ -443,5 +443,5 @@ function _settings_submit(){
                     break;
             }
         }
-    _redirect('/headset/?settings=true');
+    _redirect('/?settings=true');
 }

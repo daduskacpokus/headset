@@ -49,14 +49,14 @@ class unbreakable {
         $result = $this->dbhandler->_response($request);
 
         while ($trace_row = mysqli_fetch_array($result)) {
-//            $trace_array[0] = $trace_row['device'];
+           $trace_array[0] = $trace_row['device'];
             $trace_array[1] = $trace_row['storage'];
             $trace_array[2] = $trace_row['state'];
             $trace_array[3] = $trace_row['motion'];
         }
-        if (count($trace_array) > 0) {
-            $this->available = $this->_sniffit($trace_array[1], $trace_array[2], $trace_array[3]);
-        } else {
+        // if (count($trace_array) > 0) {
+        //     $this->available = $this->_sniffit($trace_array[1], $trace_array[2], $trace_array[3]);
+        // } else {
             switch ($this->toogle) {
                 case 'rotate':
                     $this->available = self::$NOT_FOUND;
@@ -68,7 +68,7 @@ class unbreakable {
                     $this->available = self::$NOT_FOUND;
                     break;
             }
-        }
+        // }
     }
 
     /**
